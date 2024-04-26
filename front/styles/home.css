@@ -1,0 +1,123 @@
+.header{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+.header .logo img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+.header .nav-links{
+    list-style: none;
+}
+
+.header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;    
+}
+
+.header .nav-links li:hover{
+    transform: scale(1.1);
+}
+
+.header .nav-links a{
+    font-size: 700;
+    color: #000000;
+    text-decoration: none;    
+}
+
+.header .nav-links li a:hover{
+    color: #9b6258;
+}
+
+.header .btn button{
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover{
+    background-color: #e2f1f8;
+    color: #ffbc0e;
+    transform: scale(1.1);
+}
+
+.encabezado-img{
+	background-image: url(../assets/background.jpg);
+	background-size: cover;
+	height: 95vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #000000;
+}
+.encabezado-img p{
+	font-size: 18px;
+}
+.encabezado-img h1{
+	font-size: 50px;
+	padding: 15px 0;
+
+}
+.text{
+    color: black;
+    text-align: center;
+}
+
+.text-container{
+    max-width: 400px;
+}
+
+.bar{
+    display: flex; /* Utiliza flexbox para alinear elementos horizontalmente */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea si no caben en una sola línea */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding: 1rem 2rem;
+    background-color: rgb(155, 157, 168);
+}
+.bar div{
+    padding-left: 2.5rem; /* Añade espaciado alrededor de los span */
+    margin: 5px; /* Añade un pequeño margen entre los span */
+    max-width: 250px;
+    text-align: center;
+   
+}
+.bar ion-icon{
+    font-size: 25px;
+}
+
+.services-cards{
+    padding: 6rem 3rem;
+}
+
+.services-cards div div:hover{
+    background-color: rgb(236, 235, 235);
+}
+
+@media(max-width:925px){
+    .encabezado-img{
+        background-image: none;
+        background-color: rgb(161, 118, 118);
+    }
+}
