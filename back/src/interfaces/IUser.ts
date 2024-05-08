@@ -1,8 +1,10 @@
-interface IUser {
-    id: number,
+ export interface IUser {
+    id: string,
     name: string,
     email: string,
-    password: string, 
+    birthdate: string,
+    nDni: number,
+    credentialsID: string, 
 }
 
-export default IUser
+export const users: IUser [] = []

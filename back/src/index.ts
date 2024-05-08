@@ -1,6 +1,6 @@
 import server from "./server"
 import { PORT } from "./config/envs"
-import router from "./routes/recursos"
+import router from "./routes/indexRouter"
 
 
 server.listen(PORT, () => {

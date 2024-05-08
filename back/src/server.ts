@@ -1,5 +1,5 @@
 import express from "express" //importa express desde express la dependencia
-import router from "./routes/recursos"
+import router from "./routes/indexRouter"
 
 const server = express()
 
