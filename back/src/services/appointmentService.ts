@@ -1,39 +1,41 @@
-import { IAppointment, appointments, AppointmentStatus } from "../interfaces/IAppointment"
-import { randomUUID } from "crypto"
+import { AppDataSource } from "../config/data-source"
+import { Appointment } from "../entity/Appointment"
 
 
-export const createNewAppointmentService = async (date: string, time: string, userID: string, status: AppointmentStatus) => {
-    const newAppointment: IAppointment = { 
-        id: randomUUID(),
-        date: date,
-        time: time,
-        userID: userID,
-        status: status,
-    }
-    appointments.push(newAppointment)
-    
-    return newAppointment
-    
-}
 
-export const getAllAppointments = async (): Promise <IAppointment []> => {
+
+export const getAllAppointments = async () => {
+    const appointments = await AppDataSource.getRepository(Appointment).find()
     return appointments
 }
-export const getAppointmentById = async (id: string) => {
-    const appointment : IAppointment | undefined = appointments.find((appointment: IAppointment) => appointment.id == id)
+export const getAppointmentByIdService = async (id: number) => {
+    const appointment = await AppDataSource.getRepository(Appointment).findOneBy({id: id})
     if(appointment)
         return appointment
     else
-        return "Cita no encontrada"
+    return "Cita no encontrada"
 }
 
-export const cancelAppointment = (id: string) => {
-    const indexAppointment: number  = appointments.findIndex((appointment: IAppointment) => appointment.id == id)
-
-    if(indexAppointment != -1) {
-        appointments[indexAppointment].status = AppointmentStatus.Cancelled
+export const cancelAppointmentService = async (id: number) => {
+    const appointment = await AppDataSource.getRepository(Appointment).findOneBy({id: id})
+    if(appointment){
+        appointment.status = "Cancelled"
+        await AppDataSource.getRepository(Appointment).save(appointment)
         return "Cita cancelada"
     } else {
         return "Cita no encontrado"
     }
+}
+
+export const createNewAppointmentService = async (date: string, time: string, userId: number,) => {
+    const newAppointment = new Appointment () 
+
+    newAppointment.date = date
+    newAppointment.time = time
+    newAppointment.userId = userId
+    newAppointment.status = "Active"
+
+    await AppDataSource.getRepository(Appointment).save(newAppointment)
+    return newAppointment
+    
 }

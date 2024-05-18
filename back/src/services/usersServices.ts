@@ -1,54 +1,42 @@
-import {IUser, users} from "../interfaces/IUser"
-import UserDto from "../dto/UserDto";
-import { randomUUID } from "crypto";
+
+import { AppDataSource } from "../config/data-source";
+import { User } from "../entity/User";
 import { createCredential } from "./credentialsService";
 
-let userss : IUser [] = [{
-    id: randomUUID(),
-    name: "Luz",
-    email: "luznov@gmail.com",
-    birthdate: "21/21/2000",
-    nDni: 1234567,
-    credentialsID: randomUUID()
 
-}
-]
-
-
-//una funcion async siempre retornauna promsesa que se resuelve como un IUser
-export const createUserService = async (name: string, email: string, birthdate: string, nDni: number, password: string) =>{ 
-    const idCredentials = await createCredential(name, password)
-    const newUser: IUser = {
-    id: randomUUID(),
-    name: name,
-    email: email,
-    birthdate: birthdate,
-    nDni: nDni,
-    credentialsID: idCredentials,
-    }
-    users.push(newUser)
-    //id++
-    return newUser
-
-
-    //le indicamos ts que cuando el controlador llame a esta funcion de srrvicios se tieneque asegurar que el objeto que le manda comoa rgumento cumpla con la interface userDto.
-
-}
-export const getUsersService = async (): Promise <IUser[]> => { //me retorna una promesa que se resuelve a un IUser array
+export const getUsersService = async () => { 
+    const users = await AppDataSource.getRepository(User).find()
     return users
 }
 
-export const getUserByIDService = async (id: string) => {
-    const user: IUser | undefined = users.find((user: IUser) => user.id == id)
+
+export const getUserByIDService = async (id: number) => {
+    const user = await AppDataSource.getRepository(User).findOneBy({id: id})
     if(user)
         return user
     else
-        return "Usuario no encontrado"
+    return "User no encontrada"
+}
+
+export const getUserByCredentialService = async (idC: number) => {
+    const user = await AppDataSource.getRepository(User).findOneBy({credentialID: idC})
+    if(user)
+        return user
+    else
+    return "User no encontrada"
 }
 
 
-// export const deleteUserService = async (id: number): Promise <void> => { //no retorna nada
-//     users = users.filter((user: IUser) => {
-//         return user.id !== id
-//     })
-// }
+//una funcion async siempre retornauna promsesa que se resuelve como un IUser
+export const createUserService = async (name: string, email: string, birthdate: string, nDni: number, username: string, password: string) =>{ 
+    const newUser = new User () 
+
+    newUser.name = name
+    newUser.email = email
+    newUser.birthdate = birthdate
+    newUser.nDni= nDni
+    newUser.credentialID= await createCredential(username, password)
+
+    await AppDataSource.getRepository(User).save(newUser)
+    return newUser
+}

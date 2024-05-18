@@ -5,10 +5,10 @@ const appointmentsRouter = Router()
 
 appointmentsRouter.get("/", getAppointments) //llama a todos los turnos
 
-appointmentsRouter.get("/:id", getAppointmentById) //busca turne por id
+appointmentsRouter.get("/:id", getAppointmentById) //busca turno por id
+
+appointmentsRouter.put("/cancel/:id", cancelAppointment) //cancelar turno
 
 appointmentsRouter.post("/schedule", createNewAppointment) //crea nuevo turne
-
-appointmentsRouter.put("/cancel", cancelAppointment) //cancelar turno
 
 export {appointmentsRouter}
