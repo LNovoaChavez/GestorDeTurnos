@@ -1,5 +1,5 @@
 import { AppDataSource } from "../config/data-source"
-import { Appointment } from "../entity/Appointment"
+import { Appointment, AppointmentStatus } from "../entity/Appointment"
 
 
 
@@ -16,10 +16,16 @@ export const getAppointmentByIdService = async (id: number) => {
     return "Cita no encontrada"
 }
 
+export const getAppointmentByUserId = async (idU: number) => {
+    const appointments = await AppDataSource.getRepository(Appointment).findBy({userId: idU})
+    return appointments
+   
+}
+
 export const cancelAppointmentService = async (id: number) => {
     const appointment = await AppDataSource.getRepository(Appointment).findOneBy({id: id})
     if(appointment){
-        appointment.status = "Cancelled"
+        appointment.status = AppointmentStatus.Cancelled
         await AppDataSource.getRepository(Appointment).save(appointment)
         return "Cita cancelada"
     } else {
@@ -27,13 +33,12 @@ export const cancelAppointmentService = async (id: number) => {
     }
 }
 
-export const createNewAppointmentService = async (date: string, time: string, userId: number,) => {
+export const createNewAppointmentService = async (date: Date, time: Date, userId: number,) => {
     const newAppointment = new Appointment () 
 
     newAppointment.date = date
     newAppointment.time = time
     newAppointment.userId = userId
-    newAppointment.status = "Active"
 
     await AppDataSource.getRepository(Appointment).save(newAppointment)
     return newAppointment

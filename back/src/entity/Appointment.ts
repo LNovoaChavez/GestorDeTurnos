@@ -1,10 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./User";
 
 
 export enum AppointmentStatus {
-    Active,
-    Cancelled,
-    Finished,
+    Active = "Active",
+    Cancelled = "Cancelled",
+    Finished = "Finished",
 }
 
 @Entity()
@@ -13,16 +14,17 @@ export class Appointment {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
-    date: string
+    @Column({type: "date"})
+    date: Date;
     
-    @Column()
-    time: string
+    @Column({type: "time"})
+    time: Date;
+    
+    @Column({type: "enum", enum: AppointmentStatus,default: AppointmentStatus.Active})
+    status: AppointmentStatus
+    
+    @ManyToOne(()=> User, user => user.appointments)
 
-    @Column()
+    @JoinColumn()
     userId: number
-
-    @Column()
-    status: string
-    
 }

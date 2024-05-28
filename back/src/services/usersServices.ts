@@ -15,7 +15,7 @@ export const getUserByIDService = async (id: number) => {
     if(user)
         return user
     else
-    return "User no encontrada"
+    return false
 }
 
 export const getUserByCredentialService = async (idC: number) => {
@@ -28,7 +28,7 @@ export const getUserByCredentialService = async (idC: number) => {
 
 
 //una funcion async siempre retornauna promsesa que se resuelve como un IUser
-export const createUserService = async (name: string, email: string, birthdate: string, nDni: number, username: string, password: string) =>{ 
+export const createUserService = async (name: string, email: string, birthdate: Date, nDni: number, username: string, password: string) =>{ 
     const newUser = new User () 
 
     newUser.name = name

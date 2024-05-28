@@ -1,0 +1,18 @@
+.navLinks li{
+    display: inline-block;
+    padding: 0 20px;   
+}
+
+.navLinks li:hover{
+    transform: scale(1.1);
+}
+.navLinks a{
+    font-size: 700;
+    color: #000000;
+    text-decoration: none;    
+}
+
+.navLinks li a:hover{
+    color: #9b6258;
+}
+

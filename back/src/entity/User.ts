@@ -1,10 +1,12 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Credential } from "./Credential";
+import { Appointment } from "./Appointment";
 
 
 @Entity({
     name: "users"
 })
-
+@Unique(["email"]) //para q mail sea unico
 export class User {
     @PrimaryGeneratedColumn()
     id: number
@@ -17,14 +19,18 @@ export class User {
     @Column()
     email: string
 
-    @Column()
-    birthdate: string
+    @Column({type: "date"})
+    birthdate: Date
 
     @Column()
     nDni: number
 
+    @OneToMany(()=> Appointment, appointment => appointment.userId)
+    appointments: Appointment[]
     
-    @Column()
+    @OneToOne (()=> Credential, credential => credential.id )
+
+    @JoinColumn()
     credentialID: number
 
 

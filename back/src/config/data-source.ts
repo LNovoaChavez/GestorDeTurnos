@@ -10,6 +10,7 @@ export const AppDataSource = new DataSource({
     username: "postgres",
     password: "Luzdiamond",
     database: "proyectm3",
+    //dropSchema: true,
     synchronize: true,
     logging: false,
     entities: [User, Credential, Appointment],

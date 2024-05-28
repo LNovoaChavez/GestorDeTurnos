@@ -1,0 +1,20 @@
+.appointmentBox {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 45%; /* Ajusta el ancho para tener dos por línea */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.appointmentDetails {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.appointmentDetails p {
+    flex: 1;
+}

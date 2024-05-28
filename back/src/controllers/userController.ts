@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { getUsersService, createUserService, getUserByIDService, getUserByCredentialService } from "../services/usersServices"
 import { validateCredential } from "../services/credentialsService"
 import { validarEmail } from "../helpers/validaciones"
-import { User } from "../entity/User"
+import { getAppointmentByUserId } from "../services/appointmentService"
 
 
 export const getUsers = async (req: Request, res: Response) => {
@@ -22,20 +22,28 @@ export const getUsers = async (req: Request, res: Response) => {
     try{
         const userId: number = parseInt(req.params.id)
         const user = await getUserByIDService(userId)
-        if(user)
-            res.status(200).send(user)
-        else 
+        if(user){
+            const appointments = await getAppointmentByUserId(userId)
+            const userData = 
+            {
+                ...user,
+                appointments: appointments
+            }  
+            res.status(200).send(userData) //cambia forma de visualizar datos
+            
+        } else {
             res.status(404).send("Usuario no encontrado")
+        }
     }catch (e) {
         res.status(500).send(e)
     }
-}
+ }
 
 export const registerController = async (req: Request, res: Response) => {
     try{
         const {name, email, birthdate, nDni, username, password} = req.body
         if(validarEmail(email)){
-            const newUser = await createUserService(name, email, birthdate, nDni, username, password)
+            const newUser = await createUserService(name, email, new Date(birthdate), nDni, username, password)
             res.status(200).send(newUser)
         } else {
             res.status(400).send("Datos ingresados son incorrectos")
@@ -67,12 +75,3 @@ export const loginController = async (req: Request, res: Response) => {
         res.status(500).send(e)
     }
 }
-
-//{
-//     "name": "Luz",
-//     "username": "Lucesita",
-//     "email": "luz@luz.com",
-//     "birthdate": "10/10/2000",
-//     "nDni": "123455",
-//     "Password": "Luzst"
-//   }

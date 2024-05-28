@@ -1,0 +1,23 @@
+
+.encabezadoimg{
+	background-image: url(../../assets/background.jpg);
+	background-size: cover;
+	height: 95vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #000000;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+.encabezadoimg p{
+	font-size: 18px;
+}
+.encabezadoimg h1{
+	font-size: 50px;
+	padding: 15px 0;
+
+}
