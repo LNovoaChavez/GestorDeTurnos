@@ -1,10 +1,14 @@
 import styles from "./NavLogo.module.css"
+import MyLogo from "../../assets/logoo.jpeg"
+import { Link } from "react-router-dom"
+
 
 const NavLogo = () => {
     return (
         <div className={styles.logo}>
-            <h1>Soy logo</h1>
-            <image src={"MyLogo"} alt="brand logo"/>
+            <Link to={"./"}>
+            <img src={MyLogo} alt="brand logo"/>
+            </Link>
         </div>
     )
 }

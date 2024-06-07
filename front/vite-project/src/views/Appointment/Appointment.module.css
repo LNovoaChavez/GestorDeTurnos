@@ -1,0 +1,62 @@
+.createAppointmentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+  }
+  
+  .createAppointmentContainer h2 {
+    margin-bottom: 20px; 
+  }
+  
+  .createAppointmentContainer form {
+    background-color: rgb(189, 161, 140);
+    width: 90%; 
+    max-width: 450px; 
+    padding: 3rem 3rem;
+    border-radius: 1rem;
+  }
+  
+  .createAppointmentContainer form div {
+    margin-bottom: 15px; 
+  }
+  
+  .createAppointmentContainer form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .createAppointmentContainer form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 5px; 
+  }
+  
+  .createAppointmentContainer form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f1f1f1;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px; 
+  }
+  
+  .createAppointmentContainer form button:hover {
+    background-color: #d0d6db;
+  }
+  
+  @media (max-width: 600px) {
+    .createAppointmentContainer form {
+      width: 95%; 
+    }
+  }
+  

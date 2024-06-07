@@ -1,0 +1,27 @@
+.certificationsBar {
+    display: flex;
+    justify-content: space-around; /* Distribuir el espacio uniformemente */
+    align-items: center; /* Alinear elementos verticalmente */
+    background-color:rgb(189, 161, 140);; /* Color de fondo para la barra */
+    padding: 10px 5px; /* Espaciado interno */
+    flex-wrap: wrap;
+}
+
+.certificationsItem {
+    display: flex;
+    align-items: center; /* Alinear ícono y texto verticalmente */
+    padding: 0 20px; /* Espaciado horizontal entre elementos */
+    margin: 10px;
+}
+
+.certificationsIcon {
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+    font-size: 24px; /* Tamaño del ícono */
+    color: #333; /* Color del ícono */
+}
+
+.certificationsItem span {
+    font-size: 16px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+}
+

@@ -22,9 +22,12 @@ export class Appointment {
     
     @Column({type: "enum", enum: AppointmentStatus,default: AppointmentStatus.Active})
     status: AppointmentStatus
-    
-    @ManyToOne(()=> User, user => user.appointments)
 
-    @JoinColumn()
+    @Column()
     userId: number
+    
+//     @ManyToOne(()=> User, user => user.appointments)
+
+//     @JoinColumn()
+//     userId: number
 }

@@ -1,0 +1,38 @@
+.aboutContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(226, 223, 218);
+    margin: 6rem 3rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    flex-direction: column;
+}
+
+.aboutContent {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.aboutImage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+@media (min-width: 768px) {
+    .aboutContainer {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .aboutContent {
+        flex: 1;
+        padding-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .aboutImage {
+        flex: 1;
+    }
+}

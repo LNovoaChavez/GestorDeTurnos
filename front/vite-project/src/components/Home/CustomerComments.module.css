@@ -1,0 +1,56 @@
+.commentsContainer {
+    display: flex;
+    align-items: center;
+    padding: 6rem 1rem;
+    flex-wrap: wrap;
+    background-color: rgb(226, 223, 218);
+}
+
+.commentsHeader {
+    flex: 1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.commentsHeader h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.commentsHeader p {
+    font-size: 14px;
+    color: #777;
+    margin: 5px 0 0;
+}
+
+.commentsBox {
+    display: flex;
+    justify-content: space-around;
+    flex: 3;
+}
+
+.commentCard {
+    background-color: rgb(241, 239, 234);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 25%;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.commentText {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.commentName {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.commentRating {
+    font-size: 20px;
+    color: #ffc107;
+}

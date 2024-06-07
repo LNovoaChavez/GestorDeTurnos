@@ -1,5 +1,20 @@
-.appointmentsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Espacio entre cajas */
+.pNoApp {
+    text-align: center;
+}
+
+.appButton {
+    margin: 20px auto; 
+    display: block;
+    background-color: transparent; 
+    border: 2px solid black; 
+    color: black; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.appButton:hover {
+    background-color: black; 
+    color: white; 
 }

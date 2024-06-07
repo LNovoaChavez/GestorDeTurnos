@@ -1,12 +1,28 @@
+.appointmentContainer {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+}
+
+@media (max-width: 768px) {
+    .appointmentContainer {
+        flex-direction: column; 
+    }
+}
+
 .appointmentBox {
-    display: flex;
-    flex-direction: column;
+    flex-basis: calc(50% - 20px); 
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
-    width: 45%; /* Ajusta el ancho para tener dos por línea */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .appointmentBox {
+        flex-basis: calc(100% - 20px); 
+    }
 }
 
 .appointmentDetails {
@@ -17,4 +33,19 @@
 
 .appointmentDetails p {
     flex: 1;
+}
+
+.appointmentBox button {
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid black; /* Bordes negros */
+    color: black; /* Texto negro */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.appointmentBox button:hover {
+    background-color: black; /* Fondo negro al pasar el cursor */
+    color: white; /* Texto blanco al pasar el cursor */
 }

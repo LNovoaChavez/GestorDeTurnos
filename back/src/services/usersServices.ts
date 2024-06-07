@@ -11,15 +11,15 @@ export const getUsersService = async () => {
 
 
 export const getUserByIDService = async (id: number) => {
-    const user = await AppDataSource.getRepository(User).findOneBy({id: id})
+    const user = await AppDataSource.getRepository(User).findOneBy({credentialID: id})
     if(user)
         return user
     else
-    return false
+    return null
 }
 
 export const getUserByCredentialService = async (idC: number) => {
-    const user = await AppDataSource.getRepository(User).findOneBy({credentialID: idC})
+    const user = await AppDataSource.getRepository(User).findOneBy({id: idC})
     if(user)
         return user
     else

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap');
+
+.text{
+    color: black;
+    text-align: center;
+}
+
+.textcontainer{
+    max-width: 400px;
+}
+
+h1{
+    font-family: "Baskerville", serif;
+}
+
+.appButton{
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid black; /* Bordes negros */
+    color: black; /* Texto negro */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+button:hover{
+    background-color: black; /* Fondo negro al pasar el cursor */
+    color: white; /* Texto blanco al pasar el cursor */
+}

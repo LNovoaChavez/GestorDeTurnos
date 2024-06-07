@@ -1,5 +1,6 @@
-
-
+body{
+  background-color: rgb(247, 242, 236);
+}
 .logo {
   height: 6em;
   padding: 1.5em;

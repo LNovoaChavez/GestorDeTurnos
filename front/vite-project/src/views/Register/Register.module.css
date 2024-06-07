@@ -1,0 +1,63 @@
+
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px; /* Espacio en la parte superior */
+  margin-bottom: 50px; /* Espacio en la parte inferior */
+      
+  }
+  
+.registerContainer h2 {
+  margin-bottom: 20px; /* Espacio entre el título y el formulario */
+}
+  
+.registerContainer form {
+  background-color: rgb(189, 161, 140);
+  width: 90%; /* Ancho del formulario */
+  max-width: 450px; /* Ancho máximo del formulario */
+  padding: 6rem 3rem;
+  border-radius: 1rem;
+}
+  
+.registerContainer form div {
+  margin-bottom: 15px; /* Espacio entre cada campo */
+}
+  
+.registerContainer form label {
+  display: block;
+  margin-bottom: 5px;
+ }
+  
+.registerContainer form input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-top: 5px; /* Espacio entre el label y el input */
+}
+  
+.registerContainer form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f1f1f1;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px; /* Espacio entre el último campo y el botón */
+}
+  
+.registerContainer form button:hover {
+  background-color: #d0d6db;
+}
+
+@media (max-width: 600px) {
+  .registerContainer form {
+       width: 95%; /* Ancho del formulario en dispositivos pequeños */
+  }
+}

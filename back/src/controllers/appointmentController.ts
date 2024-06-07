@@ -19,7 +19,7 @@ export const getAppointmentById = async (req: Request, res: Response) => {
         const appointmentId: number = parseInt(req.params.id)
         const appointment = await getAppointmentByIdService(appointmentId)
         if(appointment)
-            res.status(200).send(appointmentId)
+            res.status(200).send(appointment)
         else
             res.status(404).send("Usuario no encontrado")
     } catch (e) {

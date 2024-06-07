@@ -1,0 +1,39 @@
+.treatmentsSection {
+    text-align: center;
+    padding: 20px;
+}
+
+.treatmentsSection h2 {
+    margin-bottom: 10px;
+}
+
+.treatmentsSection p {
+    margin-bottom: 20px;
+}
+
+.treatmentsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.treatmentBox {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.treatmentBox img {
+    width: 70%;
+    height: 70%;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .treatmentsContainer {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,50 @@
+.treatmentsSection {
+    text-align: center;
+    padding: 20px;
+}
+
+.treatmentsSection h2 {
+    margin-bottom: 20px;
+}
+
+.treatmentsContainer {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    flex-wrap: wrap;
+    padding: 6rem 1rem;
+}
+
+.treatmentBox {
+    text-align: center;
+    width: 25%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.treatmentBox img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.treatmentBox p {
+    font-size: 14px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .treatmentBox {
+        width: 45%;
+    }
+}
+
+@media (max-width: 576px) {
+    .treatmentBox {
+        width: 90%;
+    }
+}

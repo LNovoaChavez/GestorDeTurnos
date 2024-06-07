@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn, Unique } from "typeorm";
 
+@Unique(["username"])
 @Entity()
 
 export class Credential {

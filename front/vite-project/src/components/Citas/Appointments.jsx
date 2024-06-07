@@ -1,8 +1,9 @@
 import styles from "./Appointments.module.css"
 
-const Appointments = ({citas}) => {
-    const {id, date, time, status,} = citas
+const Appointments = ({appointmentProps}) => {
+    const {id, date, time, status,} = appointmentProps
     return (
+        <div>
         <div className={styles.appointmentBox}>
             <h3>Appointment</h3>
             <div className={styles.appointmentDetails}>
@@ -12,8 +13,11 @@ const Appointments = ({citas}) => {
             <div className={styles.appointmentDetails}>
                 <p>Appointment ID: {id}</p>
                 <p>Status: {status}</p>
-        
             </div>
+            <div>
+                <button>Cancel appintment</button>
+            </div>
+        </div>
         </div>
     )
 

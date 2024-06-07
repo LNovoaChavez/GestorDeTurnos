@@ -1,0 +1,55 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px; /* Espacio en la parte superior */
+  margin-bottom: 50px; /* Espacio en la parte inferior */
+    
+}
+
+.loginContainer h2 {
+  margin-bottom: 20px; /* Espacio entre el título y el formulario */
+}
+
+.loginContainer form {
+  background-color: rgb(189, 161, 140);
+  width: 300px; /* Ancho del formulario */
+  padding: 6rem 3rem;
+  border-radius: 1rem;
+}
+
+.loginContainer form div {
+  margin-bottom: 15px; /* Espacio entre cada campo */
+}
+
+.loginContainer form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.loginContainer form input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 5px; /* Espacio entre el label y el input */
+}
+
+.loginContainer form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f1f1f1;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px; /* Espacio entre el último campo y el botón */
+}
+
+.loginContainer form button:hover {
+  background-color: #d0d6db;
+}
