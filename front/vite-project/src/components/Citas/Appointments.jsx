@@ -1,7 +1,27 @@
 import styles from "./Appointments.module.css"
 
 const Appointments = ({appointmentProps}) => {
+
+
     const {id, date, time, status,} = appointmentProps
+
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleCancelAppointment = async () => {
+        try {
+            const response = await axios.delete(`http://localhost:3000/appointments/cancel/${id}`);
+            console.log('Appointment cancelled successfully:', response.data);
+            // Si deseas actualizar la interfaz después de la cancelación, puedes hacerlo aquí
+        } catch (error) {
+            console.error('Error cancelling appointment:', error);
+            if (error.response && error.response.data && error.response.data.message) {
+                setErrorMessage(error.response.data.message);
+            } else {
+                setErrorMessage('There was an error cancelling the appointment.');
+            }
+        }
+    };
+
     return (
         <div>
         <div className={styles.appointmentBox}>
@@ -15,7 +35,7 @@ const Appointments = ({appointmentProps}) => {
                 <p>Status: {status}</p>
             </div>
             <div>
-                <button>Cancel appintment</button>
+                <button onClick={handleCancelAppointment}>Cancel appintment</button>
             </div>
         </div>
         </div>

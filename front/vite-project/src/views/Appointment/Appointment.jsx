@@ -40,6 +40,8 @@ const Appointment = () => {
             setErrorMessage("There was an error creating the appointment.");
         }
     };
+
+    
     return (
         <div className={style.createAppointmentContainer}>
             <h2>Create Appointment</h2>
